@@ -5,9 +5,19 @@ export interface IEvent {
   time: string,
   price: number,
   imageUrl: string,
-  location: {
+  location?: {
     address: string,
     city: string,
     country: string
-  }
+  },
+  onlineUrl?: string,
+  sessions: [{
+    id: number,
+    name: string,
+    presenter: string,
+    duration: number,
+    level: string,
+    abstract: string
+    voters: Array<string>
+  }]
 }
