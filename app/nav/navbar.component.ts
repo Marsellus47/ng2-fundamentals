@@ -1,3 +1,4 @@
+import { AuthService } from './../user/auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,4 +11,6 @@ import { Component } from '@angular/core';
     li > a.active { color: #F97924; }
   `]
 })
-export class NavBarComponent { }
+export class NavBarComponent {
+  constructor(private authService: AuthService) { }
+}

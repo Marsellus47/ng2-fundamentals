@@ -1,4 +1,4 @@
-import { IEvent } from './../shared/event';
+import { IEvent } from './../shared/event.model';
 import { Component, OnInit } from '@angular/core';
 
 import { EventService } from '../shared/event.service';
