@@ -19,12 +19,17 @@ export class EventService {
     return EVENTS.find(event => event.id === id);
   }
 
-  saveEvent(event: any): void {
+  saveEvent(event: IEvent): void {
     const newEvent = Object.assign({}, event, {
       id: 999,
       sessions: []
     });
     EVENTS.push(newEvent);
+  }
+
+  updateEvent(event: IEvent): void {
+    const index = EVENTS.findIndex(x => x.id === event.id);
+    EVENTS[index] = event;
   }
 }
 
