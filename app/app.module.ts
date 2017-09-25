@@ -16,7 +16,10 @@ import {
 } from './events/index';
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
-import { ToastrService } from './common/toastr.service';
+import {
+  ToastrService,
+  CollapsibleWellComponent
+} from './common/index';
 import { PageNotFoundComponent } from './errors/page-not-found.component';
 import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
@@ -32,12 +35,13 @@ import { AuthService } from './user/auth.service';
     EventsAppComponent,
     EventsListComponent,
     EventThumbnailComponent,
+    NavBarComponent,
     EventDetailsComponent,
     CreateEventComponent,
     CreateSessionComponent,
     PageNotFoundComponent,
     SessionListComponent,
-    NavBarComponent
+    CollapsibleWellComponent
   ],
   providers: [
     EventService,
