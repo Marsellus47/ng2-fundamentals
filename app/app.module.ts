@@ -18,12 +18,15 @@ import {
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
 import {
-  ToastrService,
-  CollapsibleWellComponent
+  TOASTR_TOKEN,
+  CollapsibleWellComponent,
+  Toastr
 } from './common/index';
 import { PageNotFoundComponent } from './errors/page-not-found.component';
 import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
+
+declare let toastr: Toastr;
 
 @NgModule({
   imports: [
@@ -53,7 +56,10 @@ import { AuthService } from './user/auth.service';
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
     },
-    ToastrService,
+    {
+      provide: TOASTR_TOKEN,
+      useValue: toastr
+    },
     AuthService
   ],
   bootstrap: [
