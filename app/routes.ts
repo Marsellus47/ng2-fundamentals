@@ -2,11 +2,11 @@ import { Routes } from '@angular/router';
 
 import {
   EventDetailsComponent,
-  EventRouteActivator,
   EventsListComponent,
   EventListResolver,
   CreateEventComponent,
-  CreateSessionComponent
+  CreateSessionComponent,
+  EventResolver
 } from './events/index';
 import { PageNotFoundComponent } from './errors/page-not-found.component';
 
@@ -24,7 +24,7 @@ export const appRoutes: Routes = [
   {
     path: 'events/:id',
     component: EventDetailsComponent,
-    canActivate: [EventRouteActivator]
+    resolve: { event: EventResolver }
   },
   { path: 'events/session/new', component: CreateSessionComponent },
   { path: '404', component: PageNotFoundComponent },

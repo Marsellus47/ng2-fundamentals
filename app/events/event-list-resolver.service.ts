@@ -7,11 +7,10 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class EventListResolver implements Resolve<Array<IEvent>> {
+export class EventListResolver implements Resolve<any> {
   constructor(private eventService: EventService) { }
 
-  resolve(): Observable<Array<IEvent>> {
-    return this.eventService.getEvents()
-      .map(events => events);
+  resolve() {
+    return this.eventService.getEvents();
   }
 }
