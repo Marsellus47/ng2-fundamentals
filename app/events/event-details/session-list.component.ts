@@ -13,7 +13,7 @@ export class SessionListComponent implements OnChanges {
   @Input() filterBy: string;
   @Input() sortBy: string;
   @Input() eventId: number;
-  private visibleSessions: Array<ISession> = [];
+  visibleSessions: Array<ISession> = [];
 
   constructor(private authService: AuthService,
     private voterService: VoterService) { }
