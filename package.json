@@ -26,11 +26,11 @@
     "systemjs": "0.19.40",
     "toastr": "^2.1.2",
     "tslint": "^5.7.0",
-    "zone.js": "0.8.4"
+    "zone.js": "^0.8.18"
   },
   "devDependencies": {
     "@types/core-js": "0.9.34",
-    "@types/jasmine": "^2.6.0",
+    "@types/jasmine": "^2.2.33",
     "@types/node": "6.0.46",
     "concurrently": "3.2.0",
     "jasmine-core": "^2.8.0",

@@ -37,7 +37,7 @@ describe('SessionListComponent', () => {
 
       component.ngOnChanges();
 
-      expect(component.visibleSessions[2]).toBe('session 3');
+      expect(component.visibleSessions[2].name).toBe('session 3');
     });
   });
 });
