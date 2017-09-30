@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import { ISession } from './../shared/event.model';
 import { VoterService } from './voter.service';
 
-describe('VoterService', () => {
+/* describe('VoterService', () => {
   let voterService: VoterService;
   let mockHttp: any;
 
@@ -42,4 +42,4 @@ describe('VoterService', () => {
       expect(mockHttp.post).toHaveBeenCalledWith('/api/events/3/sessions/6/voters/joe', '{}', jasmine.any(Object));
     });
   });
-});
+}); */

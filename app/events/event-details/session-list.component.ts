@@ -1,12 +1,13 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { ISession } from '../shared/event.model';
 import { AuthService } from '../../user/auth.service';
 import { VoterService } from './voter.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'session-list',
-  templateUrl: 'app/events/event-details/session-list.component.html'
+  templateUrl: 'session-list.component.html'
 })
 export class SessionListComponent implements OnChanges {
   @Input() sessions: Array<ISession>;
@@ -15,10 +16,10 @@ export class SessionListComponent implements OnChanges {
   @Input() eventId: number;
   visibleSessions: Array<ISession> = [];
 
-  constructor(private authService: AuthService,
+  constructor(public authService: AuthService,
     private voterService: VoterService) { }
 
-  ngOnChanges(): void {
+  ngOnChanges(changes: SimpleChanges): void {
     if (this.sessions) {
       this.filterSessions();
       this.sortBy === 'name'

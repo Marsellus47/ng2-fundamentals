@@ -6,15 +6,17 @@ import {
   EventListResolver,
   CreateEventComponent,
   CreateSessionComponent,
-  EventResolver
+  EventResolver,
+  CreateEventGuardService
 } from './events/index';
 import { PageNotFoundComponent } from './errors/page-not-found.component';
+import { userRoutes } from './user/user.routes';
 
 export const appRoutes: Routes = [
   {
     path: 'events/new',
     component: CreateEventComponent,
-    canDeactivate: ['canDeactivateCreateEvent']
+    canDeactivate: [CreateEventGuardService]
   },
   {
     path: 'events',
@@ -29,6 +31,10 @@ export const appRoutes: Routes = [
   { path: 'events/session/new', component: CreateSessionComponent },
   { path: '404', component: PageNotFoundComponent },
   { path: '', redirectTo: '/events', pathMatch: 'full' },
-  { path: 'user', loadChildren: 'app/user/user.module#UserModule' },
+  {
+    path: 'user',
+    // loadChildren: 'app/user/user.module#UserModule'
+    children: userRoutes
+  },
   { path: '**', component: PageNotFoundComponent }
 ];

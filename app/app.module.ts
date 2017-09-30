@@ -1,3 +1,4 @@
+import './rxjs-extensions';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -17,7 +18,8 @@ import {
   DurationPipe,
   UpvoteComponent,
   VoterService,
-  LocationValidator
+  LocationValidator,
+  CreateEventGuardService
 } from './events/index';
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.component';
@@ -32,9 +34,11 @@ import {
 import { PageNotFoundComponent } from './errors/page-not-found.component';
 import { appRoutes } from './routes';
 import { AuthService } from './user/auth.service';
+import { ProfileComponent } from './user/profile.component';
+import { LoginComponent } from './user/login.component';
 
-declare let toastr: Toastr;
-declare let jQuery: Object;
+let toastr: Toastr = window['toastr'];
+let jQuery: Object = window['$'];
 
 @NgModule({
   imports: [
@@ -59,16 +63,15 @@ declare let jQuery: Object;
     SimpleModalComponent,
     ModalTriggerDirective,
     UpvoteComponent,
-    LocationValidator
+    LocationValidator,
+    ProfileComponent,
+    LoginComponent
   ],
   providers: [
     EventService,
     EventResolver,
     EventListResolver,
-    {
-      provide: 'canDeactivateCreateEvent',
-      useValue: checkDirtyState
-    },
+    CreateEventGuardService,
     { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: JQUERY_TOKEN, useValue: jQuery },
     AuthService,
@@ -79,10 +82,3 @@ declare let jQuery: Object;
   ]
 })
 export class AppModule { }
-
-function checkDirtyState(component: CreateEventComponent) {
-  if (component.isDirty) {
-    return confirm('You have not save this event, do you really want to cancel?');
-  }
-  return true;
-}

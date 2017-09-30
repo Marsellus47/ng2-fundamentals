@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { EventService } from './shared/event.service';
 
 @Component({
-  templateUrl: 'app/events/create-event.component.html',
+  moduleId: module.id,
+  templateUrl: 'create-event.component.html',
   styles: [`
     em { float: right; color: #E05C65; padding-left: 10px; }
     .error input { background-color: #E3C3C5; }
@@ -16,6 +17,15 @@ import { EventService } from './shared/event.service';
 })
 export class CreateEventComponent {
   public isDirty = true;
+  public name: string;
+  public date: Date;
+  public time: string;
+  public price: number;
+  public address: string;
+  public city: string;
+  public country: string;
+  public onlineUrl: string;
+  public imageUrl: string;
 
   constructor(private router: Router,
     private eventService: EventService) { }

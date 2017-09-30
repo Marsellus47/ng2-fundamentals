@@ -5,8 +5,9 @@ import { ISession } from './../events/shared/event.model';
 import { AuthService } from './../user/auth.service';
 
 @Component({
+  moduleId: module.id,
   selector: 'nav-bar',
-  templateUrl: 'app/nav/navbar.component.html',
+  templateUrl: 'navbar.component.html',
   styles: [`
     .nav.navbar-nav { font-size: 15px; }
     #searchForm { margin-right: 100px; }
@@ -18,7 +19,7 @@ export class NavBarComponent {
   searchTerm: string = '';
   foundSessions: Array<ISession>;
 
-  constructor(private authService: AuthService,
+  constructor(public authService: AuthService,
     private eventService: EventService) { }
 
   searchSessions(searchTerm: string) {

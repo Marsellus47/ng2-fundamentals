@@ -12,7 +12,7 @@ import { Component, Input } from '@angular/core';
   `
 })
 export class CollapsibleWellComponent {
-  private visible = true;
+  public visible = true;
 
   toggleContent() {
     this.visible = !this.visible;
